@@ -1,0 +1,43 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "linkado-ru/php-sdk",
+    "description": "Official PHP SDK for Linkado",
+    "keywords": ["linkado", "php", "sdk", "api", "client"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "saloonphp/saloon": "^4.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.17",
+        "pestphp/pest": "^3.8"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Linkado\\PhpSdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Linkado\\PhpSdk\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "platform": {
+            "php": "8.2.0"
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "./vendor/bin/pest --coverage-html coverage",
+        "pint": "./vendor/bin/pint"
+    }
+}
+

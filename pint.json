@@ -1,0 +1,28 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "align_multiline_comment": true,
+        "array_indentation": true,
+        "blank_line_after_namespace": true,
+        "blank_line_after_opening_tag": true,
+        "concat_space": true,
+        "declare_parentheses": true,
+        "declare_strict_types": true,
+        "fully_qualified_strict_types": true,
+        "global_namespace_import": {
+            "import_classes": true,
+            "import_constants": true,
+            "import_functions": true
+        },
+        "is_null": true,
+        "logical_operators": true,
+        "new_with_braces": true,
+        "no_unused_imports": true,
+        "not_operator_with_space": true,
+        "ordered_imports": true,
+        "ordered_traits": true,
+        "strict_param": true,
+        "ternary_to_null_coalescing": true,
+        "use_arrow_functions": true
+    }
+}

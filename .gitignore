@@ -1,0 +1,11 @@
+/.phpunit.cache
+/vendor
+/coverage
+.env
+.phpunit.result.cache
+auth.json
+/.fleet
+/.idea
+/.vscode
+.DS_Store
+

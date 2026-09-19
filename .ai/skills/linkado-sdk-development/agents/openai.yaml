@@ -1,0 +1,5 @@
+interface:
+  display_name: "Linkado SDK Development"
+  short_description: "Maintain Linkado PHP SDK surfaces"
+  default_prompt: "Use $linkado-sdk-development to extend or review the Linkado PHP SDK."
+

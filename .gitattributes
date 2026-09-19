@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.md diff=markdown
+*.php diff=php
+
+/.ai export-ignore
+/.ai/** export-ignore
+/.agents export-ignore
+/.agents/** export-ignore
+/AGENTS.md export-ignore
+/CHANGELOG.md export-ignore
+

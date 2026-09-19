@@ -1,0 +1,5 @@
+interface:
+  display_name: "Linkado SDK Release"
+  short_description: "Prepare Linkado SDK releases"
+  default_prompt: "Use $linkado-sdk-release to prepare a Linkado PHP SDK release."
+
