@@ -7,6 +7,7 @@ namespace Linkado\PhpSdk;
 use Closure;
 use Linkado\PhpSdk\Resources\EventsResource;
 use Linkado\PhpSdk\Resources\SsoLinksResource;
+use Linkado\PhpSdk\Resources\TrackingClicksResource;
 use LogicException;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
@@ -51,6 +52,11 @@ final class LinkadoConnector extends Connector
     public function ssoLinks(): SsoLinksResource
     {
         return new SsoLinksResource($this);
+    }
+
+    public function trackingClicks(): TrackingClicksResource
+    {
+        return new TrackingClicksResource($this);
     }
 
     /** @return array{baseUrl: string} */

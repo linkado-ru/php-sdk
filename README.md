@@ -6,7 +6,7 @@ SDK покрывает только подтверждённые v1-сценар
 
 - `POST /api/v1/events` — события клиентов, лидов, оплат и подписок;
 - `POST /api/v1/sso-links` — ссылка в партнёрский кабинет;
-- tracking clicks намеренно не входит в PHP SDK.
+- `POST /api/v1/tracking/clicks/resolve` — authenticated read-only click verification (since v1.1). Public click creation remains browser-owned.
 
 ## Установка
 
@@ -276,3 +276,19 @@ composer pint
 ```
 
 Изменения документируются в [CHANGELOG.md](CHANGELOG.md), процедура первого и последующих релизов — в [RELEASING.md](RELEASING.md). Лицензия — [MIT](LICENSE.md).
+
+
+## Authenticated click resolution (v1.1)
+
+```php
+use Linkado\PhpSdk\DataObjects\ResolveTrackingClickData;
+
+$click = $linkado->trackingClicks()->resolve(new ResolveTrackingClickData(
+    program_key: $programKey,
+    click_id: $candidateClickId,
+));
+```
+
+The existing integration credential needs `events:write` and the requested program scope. The server returns `data: null` for missing, foreign, future or expired clicks; otherwise `TrackingClickData` contains `click_id`, `program_key`, `referral_slug`, positive `visit_order`, `created_at` and `expires_at` (`DateTimeImmutable`, including microseconds). The order and absolute expiry come from Linkado; browser sequence/expiry are not authoritative. Auth/validation/rate-limit/server errors retain normal Saloon exceptions. One request, no retry, one-second connection/two-second total timeout. Call outside business transactions and let the host integration decide availability/claim/outbox behavior. No visitor identity or raw cookies are transmitted.
+
+This additive API is available from SDK v1.1.0. Deploy the matching server endpoint before consuming the release. Existing event/SSO constructor parameters and stable delivery IDs remain unchanged.
